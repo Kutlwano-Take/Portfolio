@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kutlwano Take | Web Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <header class="header">
+    <div class="logo">Kutlwano Take</div>
+    <nav class="nav">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="animate__animated animate__fadeInDown">Hi, I'm Kutlwano</h1>
+      <p class="animate__animated animate__fadeIn animate__delay-1s">A passionate Front-End Web Developer crafting elegant and efficient user experiences.</p>
+      <div class="buttons">
+        <a href="#projects" class="btn animate__animated animate__fadeInUp animate__delay-1s">View Projects</a>
+        <a href="#contact" class="btn animate__animated animate__fadeInUp animate__delay-1s">Contact Me</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="./images/Kutlwano K Take - Web Developer(1).jpg" alt="Kutlwano Take" class="profile-pic animate__animated animate__fadeInRight">
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p>
+          I'm a South African front-end web developer skilled in HTML, CSS, JavaScript, and responsive design. I enjoy transforming ideas into beautiful, accessible websites with an eye for detail and a passion for clean code.
+        </p>
+        <p>
+          When I'm not debugging, you'll likely catch me diving into fantasy novels, sketching landscapes, or hunting for the best coffee spots in town.
+        </p>
+      </div>
+      <div class="skills">
+        <h3>My Skills</h3>
+        <div class="skill-bars">
+          <div class="skill-bar">
+            <div class="skill-name">HTML</div>
+            <div class="bar-container">
+              <div class="bar html-css animate__animated animate__slideInLeft"></div>
+            </div>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-name">CSS</div>
+            <div class="bar-container">
+              <div class="bar javascript animate__animated animate__slideInLeft animate__delay-1s"></div>
+            </div>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-name">JavaScript</div>
+            <div class="bar-container">
+              <div class="bar design animate__animated animate__slideInLeft animate__delay-2s"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="project-list">
+      <div class="project animate__animated animate__fadeIn">
+        <h3>Talent Match Africa Website</h3>
+        <p>Designed a responsive website with HTML, CSS, and JavaScript.</p>
+        <a href="https://tma-website.netlify.app/" class="btn" target="_blank">View Project</a>
+      </div>
+      <div class="project animate__animated animate__fadeIn animate__delay-1s">
+        <h3>Château Solace Hotel Site</h3>
+        <p>Built a luxurious, elegant HTML/CSS front end with modular and DRY styles.</p>
+        <a href="https://chateau-solace.netlify.app/" class="btn" target="_blank">View Project</a>
+      </div>
+      <div class="project animate__animated animate__fadeIn animate__delay-2s">
+        <h3>To-Do Task landing Page</h3>
+        <p>Stay Organized and Achieve More with ChronoTask</p>
+        <a href="https://to-do-landing-page.netlify.app/" class="btn" target="_blank">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 class="section-title">Contact</h2>
+    <p>Let's connect! Reach out via email or social media below:</p>
+    <div class="contact-buttons">
+      <a href="mailto:kutlwanotake214@gmail.com" class="btn animate__animated animate__pulse animate__infinite">Email Me</a>
+      <a href="https://www.linkedin.com/in/kutlwano-take-42229431b/" class="btn" target="_blank">LinkedIn</a>
+      <a href="https://github.com/Kutlwano-Take" class="btn" target="_blank">GitHub</a>
+    </div>
+  </section>
+
+  <script>
+    // Add scroll animations
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate__fadeInUp');
+          }
+        });
+      }, {threshold: 0.1});
+
+      document.querySelectorAll('.project, .about-content, .skills').forEach(el => {
+        observer.observe(el);
+      });
+
+      // Floating anime elements movement
+      const animeElements = document.querySelectorAll('.anime-element');
+      animeElements.forEach(el => {
+        let x = Math.random() * 80 + 10;
+        let y = Math.random() * 80 + 10;
+        let xSpeed = (Math.random() - 0.5) * 0.2;
+        let ySpeed = (Math.random() - 0.5) * 0.2;
+        
+        function move() {
+          x += xSpeed;
+          y += ySpeed;
+          
+          if (x <= 0 || x >= 90) xSpeed *= -1;
+          if (y <= 0 || y >= 90) ySpeed *= -1;
+          
+          el.style.left = `${x}%`;
+          el.style.top = `${y}%`;
+          
+          requestAnimationFrame(move);
+        }
+        
+        move();
+      });
+    });
+  </script>
+</body>
+</html>
